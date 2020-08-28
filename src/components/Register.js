@@ -20,8 +20,7 @@ const Register = () => {
           },
           method: "POST",
           body: JSON.stringify({
-            username: username,
-            pwd: pwd,
+            username: btoa(`${username}:${pwd}`),
           }),
         }
       );
