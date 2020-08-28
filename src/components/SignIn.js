@@ -20,8 +20,7 @@ const SignIn = () => {
       },
       method: "POST",
       body: JSON.stringify({
-        username: username,
-        pwd: pwd,
+        username: btoa(`${username}:${pwd}`),
       }),
     })
       .then((res) => res.json())
