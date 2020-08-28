@@ -12,17 +12,20 @@ const Register = () => {
   const handleSignIn = async () => {
     console.log("clicked");
     try {
-      const resp = await fetch("http://localhost:5000/register", {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/jon",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          username: username,
-          pwd: pwd,
-        }),
-      });
+      const resp = await fetch(
+        "https://fast-bastion-90327.herokuapp.com/register",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/jon",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            username: username,
+            pwd: pwd,
+          }),
+        }
+      );
       localStorage.setItem("user", username);
       const jsonResp = await resp.json();
       history.push("/registermfa", { access: jsonResp.accessKey });

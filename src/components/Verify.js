@@ -8,7 +8,7 @@ const Verify = () => {
   const history = useHistory();
 
   const verifyPasscode = () => {
-    fetch("http://localhost:5000/verify", {
+    fetch("https://fast-bastion-90327.herokuapp.com/verify", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/jon",
