@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  Link,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+import SignIn from "./components/SignIn";
+import Register from "./components/Register";
+import RegisterMFA from "./components/RegisterMFA";
+import Verify from "./components/Verify";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Route
+          path="/"
+          exact
+          render={() => {
+            return <Redirect to="/signin" />;
+          }}
+        />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/register" component={Register} />
+        <Route path="/registermfa" component={RegisterMFA} />
+        <Route path="/verify" component={Verify} />
+        <Route
+          path="/Dashboard"
+          render={(props) => {
+            if (localStorage.getItem("token")) {
+              return <Dashboard {...props} />;
+            } else {
+              return <Redirect to="/signin" />;
+            }
+          }}
+        />
+        <Redirect to="/signin" />
+      </Router>
     </div>
   );
 }
