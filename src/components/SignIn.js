@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 
-import { Link, BrowserRouter as Router, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SignIn = () => {
   const [username, setUsername] = useState();

@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react";
 
 import QRGenerator from "qrcode.react";
 
