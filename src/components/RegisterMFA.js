@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import QRGenerator from "qrcode.react";
 
@@ -6,10 +6,6 @@ import { useHistory } from "react-router-dom";
 
 const RegisterMFA = (props) => {
   const history = useHistory();
-
-  useEffect(() => {
-    console.table(props);
-  }, []);
   return (
     <div className="mt-4 m-auto w-50">
       <div className="card">

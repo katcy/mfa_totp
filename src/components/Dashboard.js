@@ -6,7 +6,7 @@ const Dashboard = (props) => {
   useEffect(() => {
     console.log(props);
     setId(props.location.state.id);
-  }, []);
+  }, [props]);
   return (
     <div className="col-sm-6">
       <div className="m-auto w-75">
